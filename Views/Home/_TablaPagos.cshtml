@@ -1,0 +1,25 @@
+﻿@model List<mrteam.Models.Pago>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Monto</th>
+            <th>Forma de Pago</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pago in Model)
+        {
+            <tr>
+                <td>@pago.Id</td>
+                <td>@pago.Nombre</td>
+                <td>@pago.Monto</td>
+                <td>@pago.FormaPago</td>
+                <td>@pago.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>

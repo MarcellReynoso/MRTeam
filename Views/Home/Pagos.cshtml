@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Panel de Administrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h2>Lista de Pagos</h2>
+    <div id="tablaPagos">
+        <!-- Aquí se cargará la tabla de pagos utilizando AJAX -->
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Función para cargar la tabla de pagos mediante AJAX
+        function cargarTablaPagos() {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetTablaPagos", "Home")',
+                success: function (data) {
+                    $('#tablaPagos').html(data);
+                },
+                error: function () {
+                    alert('Error al cargar la tabla de pagos.');
+                }
+            });
+        }
+
+        // Llamada inicial para cargar la tabla de pagos
+        cargarTablaPagos();
+    </script>
+}
